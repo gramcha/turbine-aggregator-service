@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: turbine-aggregator-service
+server:
+  port: 7878
+
+#turbine:
+#  clusterNameExpression: new String("default")
+#  appConfig: WORD-QUERY-SERVICE
+#  combineHostPort: true
+#  aggregator:
+#    cluster-config: WORD-QUERY-SERVICE
+
+turbine:
+  clusterNameExpression: new String("default")
+  appConfig: WORD-QUERY-SERVICE,SYNONYMS-QUERY-SERVICE
+#  aggregator:
+#    cluster-config: WORD-QUERY-SERVICE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
